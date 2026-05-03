@@ -55,6 +55,19 @@ title-block-banner: false
 })();
 </script>
 ```
+
+::: {.visitor-inline}
+::: {.visitor-inline-header}
+::: {.visitor-inline-title}
+访客来源
+:::
+::: {.visitor-inline-hint}
+点击放大查看
+:::
+:::
+
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../files/visitor-locations.json" data-modal-title="访客来源"></div>
+:::
 :::
 
 :::
@@ -126,21 +139,6 @@ title-block-banner: false
 关于共形预测评估的预印本已发布在 arXiv。
 :::
 :::
-:::
-
-## 访客来源
-
-::: {.visitor-map-card}
-::: {.visitor-map-header}
-::: {.visitor-map-title}
-国家/地区热度图
-:::
-::: {.visitor-map-subtitle}
-每日从 GoatCounter 更新。
-:::
-:::
-
-<div id="visitor-heatmap" class="visitor-map" data-source="../files/visitor-locations.json"></div>
 :::
 
 ## 代表论文

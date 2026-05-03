@@ -1,5 +1,8 @@
 <script>
 (function() {
+  var visitorCache = null;
+  var modalState = null;
+
   function ensurePlotly() {
     if (window.Plotly) {
       return Promise.resolve();
@@ -16,6 +19,12 @@
     });
   }
 
+  function maxCount(payload) {
+    return (payload.locations || []).reduce(function(current, item) {
+      return Math.max(current, item.count || 0);
+    }, 0) || 1;
+  }
+
   function showMessage(container, message, tone) {
     container.innerHTML = '';
     var note = document.createElement('div');
@@ -24,7 +33,49 @@
     container.appendChild(note);
   }
 
-  function renderMap(container, payload) {
+  function renderDetails(container, payload) {
+    var locations = (payload.locations || []).slice(0, 10);
+    container.innerHTML = '';
+
+    var title = document.createElement('div');
+    title.className = 'visitor-map-details-title';
+    title.textContent = 'Top locations';
+    container.appendChild(title);
+
+    if (!locations.length) {
+      var empty = document.createElement('div');
+      empty.className = 'visitor-map-empty';
+      empty.style.minHeight = '120px';
+      empty.textContent = 'No location data yet.';
+      container.appendChild(empty);
+      return;
+    }
+
+    var max = maxCount(payload);
+    var list = document.createElement('div');
+    list.className = 'visitor-map-details-list';
+
+    locations.forEach(function(item) {
+      var row = document.createElement('div');
+      row.className = 'visitor-map-details-item';
+
+      var left = document.createElement('div');
+      left.innerHTML = '<div>' + item.name + '</div>' +
+        '<div class="visitor-map-details-bar"><div class="visitor-map-details-bar-fill" style="width:' + Math.max(6, Math.round((item.count / max) * 100)) + '%"></div></div>';
+
+      var right = document.createElement('div');
+      right.textContent = item.count;
+
+      row.appendChild(left);
+      row.appendChild(right);
+      list.appendChild(row);
+    });
+
+    container.appendChild(list);
+  }
+
+  function renderMap(container, payload, options) {
+    options = options || {};
     var locations = payload.locations || [];
     if (!locations.length) {
       showMessage(container, 'Visitor location data will appear after the next scheduled update.', 'neutral');
@@ -45,12 +96,13 @@
         [1.0, '#1d4ed8']
       ],
       marker: { line: { color: '#ffffff', width: 0.6 } },
-      colorbar: {
+      showscale: !!options.showColorbar,
+      colorbar: options.showColorbar ? {
         title: 'Visits',
         thickness: 12,
         outlinewidth: 0,
         tickfont: { color: '#667085' }
-      },
+      } : undefined,
       hovertemplate: '%{location}<br>Visits: %{z}<extra></extra>'
     }];
 
@@ -79,8 +131,107 @@
     });
   }
 
+  function createModal() {
+    if (modalState) {
+      return modalState;
+    }
+
+    var overlay = document.createElement('div');
+    overlay.className = 'visitor-map-modal';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+
+    var dialog = document.createElement('div');
+    dialog.className = 'visitor-map-modal-dialog';
+
+    var header = document.createElement('div');
+    header.className = 'visitor-map-modal-header';
+
+    var title = document.createElement('div');
+    title.className = 'visitor-map-modal-title';
+    title.textContent = 'Visitor Sources';
+
+    var closeButton = document.createElement('button');
+    closeButton.className = 'visitor-map-modal-close';
+    closeButton.type = 'button';
+    closeButton.textContent = 'Close';
+
+    var body = document.createElement('div');
+    body.className = 'visitor-map-modal-body';
+
+    var mapWrap = document.createElement('div');
+    mapWrap.className = 'visitor-map visitor-map-modal-view';
+
+    var details = document.createElement('div');
+    details.className = 'visitor-map-details';
+
+    body.appendChild(mapWrap);
+    body.appendChild(details);
+    header.appendChild(title);
+    header.appendChild(closeButton);
+    dialog.appendChild(header);
+    dialog.appendChild(body);
+    overlay.appendChild(dialog);
+    document.body.appendChild(overlay);
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    overlay.addEventListener('click', function(event) {
+      if (event.target === overlay) {
+        closeModal();
+      }
+    });
+
+    closeButton.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    modalState = {
+      overlay: overlay,
+      title: title,
+      mapWrap: mapWrap,
+      details: details,
+      open: function(payload, modalTitle) {
+        title.textContent = modalTitle || 'Visitor Sources';
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        renderMap(mapWrap, payload, { showColorbar: true });
+        renderDetails(details, payload);
+      }
+    };
+
+    return modalState;
+  }
+
+  function attachSidebarInteractions(container, payload) {
+    container.tabIndex = 0;
+    container.setAttribute('role', 'button');
+    container.setAttribute('aria-label', 'Open visitor source map');
+    container.addEventListener('click', function() {
+      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources');
+    });
+    container.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources');
+      }
+    });
+  }
+
   function loadVisitorData(container) {
     var source = container.getAttribute('data-source');
+    if (visitorCache) {
+      renderVisitorMap(container, visitorCache);
+      return;
+    }
+
     fetch(source, { cache: 'no-store' })
       .then(function(response) {
         if (!response.ok) {
@@ -89,33 +240,45 @@
         return response.json();
       })
       .then(function(payload) {
-        if (payload.error) {
-          showMessage(container, 'Visitor map unavailable for now: ' + payload.error, 'error');
-          return;
-        }
-        if (payload.message && !payload.locations.length) {
-          showMessage(container, payload.message, 'neutral');
-          return;
-        }
-        renderMap(container, payload);
+        visitorCache = payload;
+        renderVisitorMap(container, payload);
       })
       .catch(function(error) {
         showMessage(container, error.message || 'Visitor map unavailable.', 'error');
       });
   }
 
+  function renderVisitorMap(container, payload) {
+    if (payload.error) {
+      showMessage(container, 'Visitor map unavailable for now: ' + payload.error, 'error');
+      return;
+    }
+
+    if (payload.message && !payload.locations.length) {
+      showMessage(container, payload.message, 'neutral');
+      return;
+    }
+
+    renderMap(container, payload, { showColorbar: false });
+    attachSidebarInteractions(container, payload);
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
-    var container = document.getElementById('visitor-heatmap');
-    if (!container) {
+    var containers = document.querySelectorAll('.visitor-map[data-source]');
+    if (!containers.length) {
       return;
     }
 
     ensurePlotly()
       .then(function() {
-        loadVisitorData(container);
+        containers.forEach(function(container) {
+          loadVisitorData(container);
+        });
       })
       .catch(function(error) {
-        showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+        containers.forEach(function(container) {
+          showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+        });
       });
   });
 })();

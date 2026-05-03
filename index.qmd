@@ -55,6 +55,19 @@ Visits
 })();
 </script>
 ```
+
+::: {.visitor-inline}
+::: {.visitor-inline-header}
+::: {.visitor-inline-title}
+Visitor Sources
+:::
+::: {.visitor-inline-hint}
+Click to enlarge
+:::
+:::
+
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="files/visitor-locations.json" data-modal-title="Visitor Sources"></div>
+:::
 :::
 
 :::
@@ -126,21 +139,6 @@ April 2026
 Posted a new preprint on conformal prediction assessment to arXiv.
 :::
 :::
-:::
-
-## Visitor Sources
-
-::: {.visitor-map-card}
-::: {.visitor-map-header}
-::: {.visitor-map-title}
-Country-level heatmap
-:::
-::: {.visitor-map-subtitle}
-Refreshed daily from GoatCounter.
-:::
-:::
-
-<div id="visitor-heatmap" class="visitor-map" data-source="files/visitor-locations.json"></div>
 :::
 
 ## Selected Publications
