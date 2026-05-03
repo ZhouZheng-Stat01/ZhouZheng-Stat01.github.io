@@ -1,0 +1,27 @@
+---
+title: "CV"
+description: "Curriculum vitae"
+---
+
+## Curriculum Vitae
+
+Add a PDF version of your CV to `files/cv.pdf`, then uncomment or update the link below.
+
+[Download CV](files/cv.pdf)
+
+## Education
+
+- **Degree**, Institution, Year  
+  Advisor: Advisor Name
+
+## Experience
+
+- **Position**, Institution or Organization, Year-Year
+
+## Awards
+
+- Award name, year
+
+## Service
+
+- Reviewer, conference or journal name, year

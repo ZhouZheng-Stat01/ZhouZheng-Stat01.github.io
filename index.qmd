@@ -1,0 +1,54 @@
+---
+title: "Zheng Zhou"
+description: "Academic homepage"
+about:
+  template: jolla
+  image: images/profile-placeholder.svg
+  image-shape: rounded
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:your.email@example.com
+    - icon: github
+      text: GitHub
+      href: https://github.com/your-github-username
+    - icon: google
+      text: Google Scholar
+      href: https://scholar.google.com/
+---
+
+## About
+
+I am **Zheng Zhou**, a researcher working on topics around **your research area**, **your second research area**, and **your third research area**.
+
+Replace this paragraph with a concise academic bio: your current affiliation, research interests, methods, and the kinds of questions you care about.
+
+## Research Interests
+
+- Research direction one
+- Research direction two
+- Research direction three
+- Methods, datasets, or systems you often use
+
+## News
+
+- **May 2026**: This academic homepage is under construction.
+- **Month 2026**: Add recent papers, talks, awards, or project updates here.
+
+## Selected Publications
+
+- **Paper Title Goes Here**  
+  Zheng Zhou, Coauthor Name. *Conference or Journal*, 2026.  
+  [PDF](#) / [Code](#) / [DOI](#)
+
+- **Another Representative Paper**  
+  Zheng Zhou, Coauthor Name. *Conference or Journal*, 2025.  
+  [PDF](#) / [Project](#)
+
+See the full list on the [Publications](publications.qmd) page.
+
+## Contact
+
+Email: [your.email@example.com](mailto:your.email@example.com)  
+Office: Your office or lab address  
+Affiliation: Your university, department, or research group

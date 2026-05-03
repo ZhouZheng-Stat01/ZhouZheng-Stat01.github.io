@@ -1,0 +1,29 @@
+---
+title: "Publications"
+description: "Research publications"
+---
+
+## 2026
+
+- **Paper Title Goes Here**  
+  Zheng Zhou, Coauthor Name, Coauthor Name.  
+  *Conference or Journal Name*, 2026.  
+  [PDF](#) / [Code](#) / [DOI](#)
+
+## 2025
+
+- **Another Paper Title**  
+  Zheng Zhou, Coauthor Name.  
+  *Conference or Journal Name*, 2025.  
+  [PDF](#) / [Project](#)
+
+## Preprints
+
+- **Preprint Title**  
+  Zheng Zhou, Coauthor Name.  
+  *arXiv*, 2026.  
+  [arXiv](#)
+
+## Notes
+
+For a larger publication list, this page can later be generated from BibTeX using Quarto's bibliography support.

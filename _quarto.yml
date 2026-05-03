@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Zheng Zhou"
+  site-url: "https://your-github-username.github.io/Homepage"
+  description: "Academic homepage of Zheng Zhou"
+  navbar:
+    pinned: true
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Projects
+        href: projects.qmd
+      - text: Teaching
+        href: teaching.qmd
+      - text: CV
+        href: cv.qmd
+    right:
+      - icon: github
+        href: https://github.com/your-github-username
+        aria-label: GitHub
+      - icon: envelope
+        href: mailto:your.email@example.com
+        aria-label: Email
+  page-footer:
+    left: "© 2026 Zheng Zhou"
+    right: "Built with [Quarto](https://quarto.org/)"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles/styles.scss
+    toc: true
+    toc-location: right
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-copy: true
+
+execute:
+  freeze: auto
