@@ -280,7 +280,10 @@
       return;
     }
 
-    renderMap(container, payload, { showColorbar: false, height: 72 });
+    var previewHeight = Math.max(70, Math.round((container.clientWidth || 190) / 2));
+    container.style.height = previewHeight + 'px';
+    container.style.minHeight = previewHeight + 'px';
+    renderMap(container, payload, { showColorbar: false, height: previewHeight });
     attachSidebarInteractions(container, payload);
   }
 

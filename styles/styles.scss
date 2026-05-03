@@ -192,11 +192,13 @@ a {
 }
 
 .visitor-map-sidebar {
+  align-self: center;
   cursor: zoom-in;
-  height: 72px;
-  min-height: 72px;
+  height: 95px;
+  min-height: 95px;
   opacity: 0.86;
   transition: opacity 150ms ease;
+  width: 95%;
 }
 
 .visitor-map-sidebar:hover {
@@ -601,8 +603,14 @@ a {
   }
 
   .home-links,
+  .visitor-inline,
   .home-stats {
     width: 150px;
+  }
+
+  .visitor-map-sidebar {
+    height: 71px;
+    min-height: 71px;
   }
 
   .education-entry {
