@@ -176,7 +176,7 @@ a {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.15rem;
 }
 
 .visitor-inline-title {
@@ -196,8 +196,8 @@ a {
 
 .visitor-map-sidebar {
   cursor: zoom-in;
-  min-height: 120px;
-  flex: 1;
+  height: 96px;
+  min-height: 96px;
 }
 
 .visitor-map-modal-view {

@@ -118,6 +118,7 @@
     }];
 
     var layout = {
+      height: options.height,
       margin: { l: 0, r: 0, t: 0, b: 0 },
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
@@ -279,7 +280,7 @@
       return;
     }
 
-    renderMap(container, payload, { showColorbar: false });
+    renderMap(container, payload, { showColorbar: false, height: 96 });
     attachSidebarInteractions(container, payload);
   }
 
