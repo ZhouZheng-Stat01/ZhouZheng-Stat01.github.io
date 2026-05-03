@@ -61,9 +61,6 @@ title-block-banner: false
 ::: {.visitor-inline-title}
 访客来源
 :::
-::: {.visitor-inline-hint}
-点击放大查看
-:::
 :::
 
 <div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../files/visitor-locations.json" data-modal-title="访客来源"></div>
