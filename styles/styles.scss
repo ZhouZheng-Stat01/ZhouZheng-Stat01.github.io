@@ -159,12 +159,9 @@ a {
 }
 
 .visitor-inline {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  border: 1px solid #dbe7f5;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  margin-top: 1rem;
-  padding: 0.6rem;
+  border-top: 1px solid #e6e8ec;
+  margin-top: 1.05rem;
+  padding-top: 0.85rem;
   width: 200px;
   max-width: 100%;
   display: flex;
@@ -180,9 +177,9 @@ a {
 }
 
 .visitor-inline-title {
-  color: #1f2937;
-  font-size: 0.98rem;
-  font-weight: 650;
+  color: #667085;
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .visitor-inline-hint {
@@ -196,8 +193,14 @@ a {
 
 .visitor-map-sidebar {
   cursor: zoom-in;
-  height: 96px;
-  min-height: 96px;
+  height: 72px;
+  min-height: 72px;
+  opacity: 0.86;
+  transition: opacity 150ms ease;
+}
+
+.visitor-map-sidebar:hover {
+  opacity: 1;
 }
 
 .visitor-map-modal-view {
