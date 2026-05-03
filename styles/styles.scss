@@ -133,6 +133,25 @@ a {
   color: #1f6feb;
 }
 
+.home-stats {
+  border-top: 1px solid #e6e8ec;
+  color: #667085;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+}
+
+.home-stats-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.home-stats-value {
+  color: #243043;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
 .home-main {
   font-size: 1.03rem;
   max-width: 1060px;
