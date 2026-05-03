@@ -81,10 +81,10 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
     
     # Keep Plotly's recognized location name separate from the public display name.
     display_name_mapping = {
-        "Taiwan": "Taiwan, China",
-        "Hong Kong": "Hong Kong, China",
-        "Macau": "Macau, China",
-        "Macao": "Macao, China",
+        "Taiwan": {"name": "Taiwan, China", "zh_name": "中国台湾"},
+        "Hong Kong": {"name": "Hong Kong, China", "zh_name": "中国香港"},
+        "Macau": {"name": "Macau, China", "zh_name": "中国澳门"},
+        "Macao": {"name": "Macao, China", "zh_name": "中国澳门"},
     }
     
     locations = []
@@ -93,9 +93,15 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
         count = row.get("count", 0)
         if not name or not count:
             continue
-        item = {"name": display_name_mapping.get(name, name), "count": int(count)}
+        mapped_name = display_name_mapping.get(name)
+        item = {"name": mapped_name["name"] if mapped_name else name, "count": int(count)}
+        if mapped_name:
+            item["zh_name"] = mapped_name["zh_name"]
         if name in display_name_mapping:
             item["plotly_name"] = name
+        location_id = row.get("id")
+        if isinstance(location_id, str) and len(location_id) == 2:
+            item["country_code"] = location_id.upper()
         locations.append(item)
 
     locations.sort(key=lambda item: item["count"], reverse=True)

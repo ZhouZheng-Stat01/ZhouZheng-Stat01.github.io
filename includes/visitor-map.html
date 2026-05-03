@@ -19,6 +19,68 @@
     });
   }
 
+  var localeText = {
+    en: {
+      close: 'Close',
+      empty: 'No location data yet.',
+      loadingEmpty: 'Visitor location data will appear after the next scheduled update.',
+      mapUnavailable: 'Visitor map unavailable.',
+      openLabel: 'Open visitor source map',
+      topLocations: 'Top locations',
+      visits: 'Visits'
+    },
+    'zh-CN': {
+      close: '关闭',
+      empty: '暂无地区数据。',
+      loadingEmpty: '访客地区数据将在下次更新后显示。',
+      mapUnavailable: '访客地图暂时不可用。',
+      openLabel: '打开访客来源地图',
+      topLocations: '主要来源地',
+      visits: '访问数'
+    }
+  };
+
+  var zhLocationNames = {
+    'Canada': '加拿大',
+    'China': '中国',
+    'Hong Kong, China': '中国香港',
+    'Macau, China': '中国澳门',
+    'Macao, China': '中国澳门',
+    'Netherlands': '荷兰',
+    'Russia': '俄罗斯',
+    'Taiwan, China': '中国台湾',
+    'Turkey': '土耳其',
+    'United Arab Emirates': '阿拉伯联合酋长国',
+    'United States': '美国'
+  };
+
+  function getLocale(container) {
+    return container.getAttribute('data-locale') || 'en';
+  }
+
+  function textFor(locale, key) {
+    return (localeText[locale] && localeText[locale][key]) || localeText.en[key];
+  }
+
+  function locationName(item, locale) {
+    if (locale === 'zh-CN') {
+      if (item.zh_name) {
+        return item.zh_name;
+      }
+      if (item.country_code && window.Intl && Intl.DisplayNames) {
+        try {
+          return new Intl.DisplayNames(['zh-CN'], { type: 'region' }).of(item.country_code) || item.name;
+        } catch (error) {
+          // Fall back to explicit names below for older or stricter browsers.
+        }
+      }
+      if (zhLocationNames[item.name]) {
+        return zhLocationNames[item.name];
+      }
+    }
+    return item.name;
+  }
+
   function maxCount(payload) {
     return (payload.locations || []).reduce(function(current, item) {
       return Math.max(current, item.count || 0);
@@ -34,6 +96,7 @@
   }
 
   function renderDetails(container, payload) {
+    var locale = getLocale(container);
     var totalLabel = container.getAttribute('data-total-label') || 'Total visits';
     var totalCount = (payload.locations || []).reduce(function(current, item) {
       return current + (item.count || 0);
@@ -43,7 +106,7 @@
 
     var title = document.createElement('div');
     title.className = 'visitor-map-details-title';
-    title.textContent = 'Top locations';
+    title.textContent = textFor(locale, 'topLocations');
     container.appendChild(title);
 
     var total = document.createElement('div');
@@ -55,7 +118,7 @@
       var empty = document.createElement('div');
       empty.className = 'visitor-map-empty';
       empty.style.minHeight = '120px';
-      empty.textContent = 'No location data yet.';
+      empty.textContent = textFor(locale, 'empty');
       container.appendChild(empty);
       return;
     }
@@ -69,7 +132,7 @@
       row.className = 'visitor-map-details-item';
 
       var left = document.createElement('div');
-      left.innerHTML = '<div>' + item.name + '</div>' +
+      left.innerHTML = '<div>' + locationName(item, locale) + '</div>' +
         '<div class="visitor-map-details-bar"><div class="visitor-map-details-bar-fill" style="width:' + Math.max(6, Math.round((item.count / max) * 100)) + '%"></div></div>';
 
       var right = document.createElement('div');
@@ -85,9 +148,10 @@
 
   function renderMap(container, payload, options) {
     options = options || {};
+    var locale = options.locale || getLocale(container);
     var locations = payload.locations || [];
     if (!locations.length) {
-      showMessage(container, 'Visitor location data will appear after the next scheduled update.', 'neutral');
+      showMessage(container, textFor(locale, 'loadingEmpty'), 'neutral');
       return;
     }
 
@@ -97,7 +161,7 @@
       locationmode: 'country names',
       locations: topLocations.map(function(item) { return item.plotly_name || item.name; }),
       z: topLocations.map(function(item) { return item.count; }),
-      customdata: topLocations.map(function(item) { return item.name; }),
+      customdata: topLocations.map(function(item) { return locationName(item, locale); }),
       colorscale: [
         [0.0, '#f0f9ff'],
         [0.2, '#e0f2fe'],
@@ -109,13 +173,13 @@
       marker: { line: { color: '#e2e8f0', width: 0.8 } },
       showscale: !!options.showColorbar,
       colorbar: options.showColorbar ? {
-        title: 'Visits',
+        title: textFor(locale, 'visits'),
         thickness: 12,
         outlinewidth: 0,
         tickfont: { color: '#667085' },
         tickcolor: '#cbd5e1'
       } : undefined,
-      hovertemplate: '<b>%{customdata}</b><br>Visits: %{z}<extra></extra>'
+      hovertemplate: '<b>%{customdata}</b><br>' + textFor(locale, 'visits') + ': %{z}<extra></extra>'
     }];
 
     var layout = {
@@ -219,12 +283,16 @@
       title: title,
       mapWrap: mapWrap,
       details: details,
-      open: function(payload, modalTitle, totalLabel) {
+      open: function(payload, modalTitle, totalLabel, locale) {
+        locale = locale || 'en';
         title.textContent = modalTitle || 'Visitor statistics';
+        closeButton.textContent = textFor(locale, 'close');
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         details.setAttribute('data-total-label', totalLabel || 'Total visits');
-        renderMap(mapWrap, payload, { showColorbar: true });
+        details.setAttribute('data-locale', locale);
+        mapWrap.setAttribute('data-locale', locale);
+        renderMap(mapWrap, payload, { showColorbar: true, locale: locale });
         renderDetails(details, payload);
       }
     };
@@ -233,16 +301,17 @@
   }
 
   function attachSidebarInteractions(container, payload) {
+    var locale = getLocale(container);
     container.tabIndex = 0;
     container.setAttribute('role', 'button');
-    container.setAttribute('aria-label', 'Open visitor source map');
+    container.setAttribute('aria-label', textFor(locale, 'openLabel'));
     container.addEventListener('click', function() {
-      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits');
+      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits', locale);
     });
     container.addEventListener('keydown', function(event) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits');
+        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits', locale);
       }
     });
   }
@@ -266,13 +335,13 @@
         renderVisitorMap(container, payload);
       })
       .catch(function(error) {
-        showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+        showMessage(container, error.message || textFor(getLocale(container), 'mapUnavailable'), 'error');
       });
   }
 
   function renderVisitorMap(container, payload) {
     if (payload.error) {
-      showMessage(container, 'Visitor map unavailable for now: ' + payload.error, 'error');
+      showMessage(container, textFor(getLocale(container), 'mapUnavailable') + ' ' + payload.error, 'error');
       return;
     }
 
@@ -284,7 +353,7 @@
     var previewHeight = Math.max(70, Math.round((container.clientWidth || 190) / 2));
     container.style.height = previewHeight + 'px';
     container.style.minHeight = previewHeight + 'px';
-    renderMap(container, payload, { showColorbar: false, height: previewHeight });
+    renderMap(container, payload, { showColorbar: false, height: previewHeight, locale: getLocale(container) });
     attachSidebarInteractions(container, payload);
   }
 
@@ -302,7 +371,7 @@
       })
       .catch(function(error) {
         containers.forEach(function(container) {
-          showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+          showMessage(container, error.message || textFor(getLocale(container), 'mapUnavailable'), 'error');
         });
       });
   });
