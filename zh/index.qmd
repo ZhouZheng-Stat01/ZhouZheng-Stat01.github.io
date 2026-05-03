@@ -159,7 +159,7 @@ Zheng Zhou\*, Xiangfei Zhang\*, Chongguang Tao\*, Yuhong Yang†
 邮箱
 :::
 ::: {.contact-value}
-[zhouz23@mails.tsinghua.edu.cn](mailto:zhouz23@mails.tsinghua.edu.cn)
+[hd23 [at] mails [dot] tsinghua [dot] edu [dot] cn](mailto:zhouz23@mails.tsinghua.edu.cn)
 :::
 :::
 
