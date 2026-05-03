@@ -1,0 +1,183 @@
+---
+title: "周正"
+description: "中文学术主页"
+toc: false
+title-block-banner: false
+---
+
+::: {.home-layout}
+
+::: {.home-sidebar}
+```{=html}
+<img src="../images/profile-photo.jpg" alt="周正" class="profile-photo">
+```
+
+# 周正
+
+::: {.home-role}
+博士三年级
+:::
+
+::: {.home-affiliation}
+清华大学  
+求真书院  
+中国，北京
+:::
+
+::: {.home-links}
+[邮箱](mailto:zhouz23@mails.tsinghua.edu.cn)  
+[GitHub](https://github.com/ZhouZheng-Stat01)  
+[Google Scholar](https://scholar.google.com/)
+:::
+
+::: {.home-stats}
+::: {.home-stats-label}
+访问量
+:::
+```{=html}
+<span id="goatcounter-total-visits" class="home-stats-value">加载中...</span>
+<script>
+(function() {
+  function loadVisits() {
+    fetch("https://zhengzhou.goatcounter.com/counter/TOTAL.json")
+      .then(function(response) {
+        if (!response.ok) throw new Error("Counter unavailable");
+        return response.json();
+      })
+      .then(function(data) {
+        document.getElementById("goatcounter-total-visits").textContent = data.count;
+      })
+      .catch(function() {
+        document.getElementById("goatcounter-total-visits").textContent = "不可用";
+      });
+  }
+  loadVisits();
+})();
+</script>
+```
+:::
+
+:::
+
+::: {.home-main}
+
+## 关于我
+
+我是**周正**，清华大学求真书院博士三年级学生，导师是[杨宇红教授](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm)。在进入清华之前，我于中山大学获得**数学**学士学位。
+
+我的研究兴趣主要包括**统计学**、**机器学习**和**量化金融**，尤其关注统计理论与方法、预测问题，以及这些方法在现实问题中的应用。我也对近年来人工智能技术的发展很感兴趣，并希望探索如何将其融入统计研究中。
+
+## 研究兴趣
+
+- 模型选择与模型评估
+- 不确定性量化，尤其是共形预测
+- 因果推断
+- 量化金融
+- 排序学习问题
+
+## 教育经历
+
+::: {.education-entry}
+<img src="../images/qiuzhen-logo.png" alt="清华大学求真书院标志" class="education-logo education-logo-wide">
+
+::: {.education-main}
+**统计学博士生**  
+清华大学求真书院  
+导师：[杨宇红教授](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm)
+:::
+::: {.education-date}
+2023 至今
+:::
+:::
+
+::: {.education-entry}
+<img src="../images/logo1.png" alt="中山大学标志" class="education-logo education-logo-wide">
+
+::: {.education-main}
+**数学学士**  
+中山大学
+:::
+::: {.education-date}
+2019-2023
+:::
+:::
+
+## 动态
+
+::: {.news-list}
+::: {.news-item}
+::: {.news-date}
+2026 年 5 月
+:::
+::: {.news-text}
+使用 Quarto 和 GitHub Pages 搭建并发布个人学术主页。
+:::
+:::
+
+::: {.news-item}
+::: {.news-date}
+2026 年 4 月
+:::
+::: {.news-text}
+关于共形预测评估的预印本已发布在 arXiv。
+:::
+:::
+:::
+
+## 代表论文
+
+::: {.publication-note}
+\* 共同一作。† 通讯作者。
+:::
+
+::: {.publication-entry}
+::: {.publication-title}
+Conformal Prediction Assessment: A Framework for Conditional Coverage Evaluation and Selection
+:::
+::: {.publication-authors}
+Zheng Zhou\*, Xiangfei Zhang\*, Chongguang Tao\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2603.27189) / [PDF](https://arxiv.org/pdf/2603.27189) / [DOI](https://doi.org/10.48550/arXiv.2603.27189)
+:::
+:::
+
+完整论文列表见[论文页面](publications.qmd)。
+
+## 联系方式
+
+::: {.contact-grid}
+::: {.contact-item}
+::: {.contact-label}
+邮箱
+:::
+::: {.contact-value}
+[zhouz23@mails.tsinghua.edu.cn](mailto:zhouz23@mails.tsinghua.edu.cn)
+:::
+:::
+
+::: {.contact-item}
+::: {.contact-label}
+GitHub
+:::
+::: {.contact-value}
+[ZhouZheng-Stat01](https://github.com/ZhouZheng-Stat01)
+:::
+:::
+
+::: {.contact-item}
+::: {.contact-label}
+单位
+:::
+::: {.contact-value}
+清华大学求真书院
+:::
+:::
+:::
+
+:::
+
+:::

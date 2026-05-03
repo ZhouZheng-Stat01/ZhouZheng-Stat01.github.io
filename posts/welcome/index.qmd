@@ -1,0 +1,11 @@
+---
+title: "Welcome"
+description: "A short note introducing this blog."
+date: 2026-05-03
+categories: [personal, website]
+author: Zheng Zhou
+---
+
+This blog will collect short notes on research ideas, statistics, machine learning, quantitative finance, and tools that I find useful.
+
+I plan to use it as a lightweight place for writing down thoughts that are not yet papers, but are still worth organizing carefully.

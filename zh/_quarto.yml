@@ -1,29 +1,28 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: ../_site/zh
   render:
     - "*.qmd"
     - "posts/"
-    - "!zh/"
 
 website:
-  title: "Zheng Zhou"
-  site-url: "https://ZhouZheng-Stat01.github.io"
-  description: "Academic homepage of Zheng Zhou"
+  title: "周正"
+  site-url: "https://ZhouZheng-Stat01.github.io/zh"
+  description: "周正的中文学术主页"
   navbar:
     pinned: true
     left:
-      - text: Home
+      - text: 首页
         href: index.qmd
-      - text: Publications
+      - text: 论文
         href: publications.qmd
-      - text: Blog
+      - text: 博客
         href: blog.qmd
-      - text: Links
+      - text: 链接
         href: links.qmd
     right:
-      - text: 中文
-        href: zh/
+      - text: English
+        href: ../index.html
       - icon: github
         href: https://github.com/ZhouZheng-Stat01
         aria-label: GitHub
@@ -31,17 +30,17 @@ website:
         href: mailto:zhouz23@mails.tsinghua.edu.cn
         aria-label: Email
   page-footer:
-    left: "© 2026 Zheng Zhou"
+    left: "© 2026 周正"
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:
   html:
     theme:
       - cosmo
-      - styles/styles.scss
+      - ../styles/styles.scss
     include-in-header:
-      - includes/goatcounter.html
-      - includes/language-switch.html
+      - ../includes/goatcounter.html
+      - ../includes/language-switch.html
     toc: true
     toc-location: right
     smooth-scroll: true

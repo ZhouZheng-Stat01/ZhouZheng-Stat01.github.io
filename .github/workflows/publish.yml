@@ -24,8 +24,13 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
+      - name: Render English site
         uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Render Chinese site
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: zh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

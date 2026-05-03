@@ -1,0 +1,37 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const path = window.location.pathname;
+  const languageLink = Array.from(document.querySelectorAll(".navbar a.nav-link"))
+    .find(function(link) {
+      const text = link.textContent.trim();
+      return text === "中文" || text === "English";
+    });
+
+  if (!languageLink) return;
+
+  const inChineseSite = path.includes("/zh/");
+  const page = path.split("/").filter(Boolean).pop() || "index.html";
+
+  if (inChineseSite) {
+    if (page === "blog.html") {
+      languageLink.setAttribute("href", "../blog.html");
+    } else if (page === "publications.html") {
+      languageLink.setAttribute("href", "../publications.html");
+    } else if (page === "links.html") {
+      languageLink.setAttribute("href", "../links.html");
+    } else {
+      languageLink.setAttribute("href", "../index.html");
+    }
+  } else {
+    if (page === "blog.html") {
+      languageLink.setAttribute("href", "zh/blog.html");
+    } else if (page === "publications.html") {
+      languageLink.setAttribute("href", "zh/publications.html");
+    } else if (page === "links.html") {
+      languageLink.setAttribute("href", "zh/links.html");
+    } else {
+      languageLink.setAttribute("href", "zh/");
+    }
+  }
+});
+</script>

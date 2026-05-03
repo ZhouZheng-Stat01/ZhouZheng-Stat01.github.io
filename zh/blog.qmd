@@ -1,0 +1,47 @@
+---
+title: "博客"
+description: "中文笔记与随笔"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: article
+---
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const categoryTitle = document.querySelector(".quarto-listing-category-title");
+  if (categoryTitle && categoryTitle.textContent.trim() === "Categories") {
+    categoryTitle.textContent = "分类";
+  }
+
+  document.querySelectorAll(".quarto-listing-category .category").forEach(function(item) {
+    const count = item.querySelector(".quarto-category-count");
+    const text = item.childNodes[0] && item.childNodes[0].textContent.trim();
+    if (text === "All") {
+      item.childNodes[0].textContent = "全部 ";
+      if (count) item.appendChild(count);
+    }
+  });
+
+  document.querySelectorAll(".listing-date").forEach(function(item) {
+    const text = item.textContent.trim();
+    if (text === "May 3, 2026") {
+      item.textContent = "2026 年 5 月 3 日";
+    }
+  });
+});
+</script>
+```
+
+::: {.blog-intro}
+::: {.blog-kicker}
+笔记与随笔
+:::
+
+这里会放一些关于统计、机器学习、量化金融、研究工具和日常思考的中文笔记。
+:::

@@ -1,0 +1,12 @@
+---
+title: "Links"
+description: "Useful links and resources"
+---
+
+::: {.links-intro}
+::: {.blog-kicker}
+Resources
+:::
+
+A small collection of websites and tools that I often use for research, learning, writing, and work.
+:::

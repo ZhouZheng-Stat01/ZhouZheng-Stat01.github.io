@@ -1,0 +1,25 @@
+---
+title: "论文"
+description: "论文列表"
+---
+
+::: {.publication-note}
+\* 共同一作。† 通讯作者。
+:::
+
+## 2026
+
+::: {.publication-entry}
+::: {.publication-title}
+Conformal Prediction Assessment: A Framework for Conditional Coverage Evaluation and Selection
+:::
+::: {.publication-authors}
+Zheng Zhou\*, Xiangfei Zhang\*, Chongguang Tao\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026. 2026 年 3 月 28 日提交；2026 年 4 月 23 日修订。
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2603.27189) / [PDF](https://arxiv.org/pdf/2603.27189) / [DOI](https://doi.org/10.48550/arXiv.2603.27189)
+:::
+:::
