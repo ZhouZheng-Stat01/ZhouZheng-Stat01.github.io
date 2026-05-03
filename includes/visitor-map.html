@@ -34,6 +34,10 @@
   }
 
   function renderDetails(container, payload) {
+    var totalLabel = container.getAttribute('data-total-label') || 'Total visits';
+    var totalCount = payload.total || (payload.locations || []).reduce(function(current, item) {
+      return current + (item.count || 0);
+    }, 0);
     var locations = (payload.locations || []).slice(0, 10);
     container.innerHTML = '';
 
@@ -41,6 +45,11 @@
     title.className = 'visitor-map-details-title';
     title.textContent = 'Top locations';
     container.appendChild(title);
+
+    var total = document.createElement('div');
+    total.className = 'visitor-map-total';
+    total.innerHTML = '<span class="visitor-map-total-label">' + totalLabel + '</span><span class="visitor-map-total-value">' + totalCount + '</span>';
+    container.appendChild(total);
 
     if (!locations.length) {
       var empty = document.createElement('div');
@@ -198,10 +207,11 @@
       title: title,
       mapWrap: mapWrap,
       details: details,
-      open: function(payload, modalTitle) {
+      open: function(payload, modalTitle, totalLabel) {
         title.textContent = modalTitle || 'Visitor Sources';
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
+        details.setAttribute('data-total-label', totalLabel || 'Total visits');
         renderMap(mapWrap, payload, { showColorbar: true });
         renderDetails(details, payload);
       }
@@ -215,12 +225,12 @@
     container.setAttribute('role', 'button');
     container.setAttribute('aria-label', 'Open visitor source map');
     container.addEventListener('click', function() {
-      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources');
+      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources', container.getAttribute('data-total-label') || 'Total visits');
     });
     container.addEventListener('keydown', function(event) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources');
+        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources', container.getAttribute('data-total-label') || 'Total visits');
       }
     });
   }

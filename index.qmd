@@ -30,32 +30,6 @@ Beijing, China
 [Google Scholar](https://scholar.google.com/)
 :::
 
-::: {.home-stats}
-::: {.home-stats-label}
-Visits
-:::
-```{=html}
-<span id="goatcounter-total-visits" class="home-stats-value">Loading...</span>
-<script>
-(function() {
-  function loadVisits() {
-    fetch("https://zhengzhou.goatcounter.com/counter/TOTAL.json")
-      .then(function(response) {
-        if (!response.ok) throw new Error("Counter unavailable");
-        return response.json();
-      })
-      .then(function(data) {
-        document.getElementById("goatcounter-total-visits").textContent = data.count;
-      })
-      .catch(function() {
-        document.getElementById("goatcounter-total-visits").textContent = "Unavailable";
-      });
-  }
-  loadVisits();
-})();
-</script>
-```
-
 ::: {.visitor-inline}
 ::: {.visitor-inline-header}
 ::: {.visitor-inline-title}
@@ -63,10 +37,8 @@ Visitor Sources
 :::
 :::
 
-<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="files/visitor-locations.json" data-modal-title="Visitor Sources"></div>
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="files/visitor-locations.json" data-modal-title="Visitor Sources" data-total-label="Total visits"></div>
 :::
-:::
-
 :::
 
 ::: {.home-main}

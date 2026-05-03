@@ -287,6 +287,25 @@ a {
   margin-bottom: 0.55rem;
 }
 
+.visitor-map-total {
+  align-items: baseline;
+  display: flex;
+  gap: 0.65rem;
+  margin-bottom: 0.8rem;
+}
+
+.visitor-map-total-label {
+  color: #667085;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.visitor-map-total-value {
+  color: #1d4ed8;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
 .visitor-map-details-list {
   display: grid;
   gap: 0.5rem;

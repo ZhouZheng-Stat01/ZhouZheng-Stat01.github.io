@@ -12,6 +12,7 @@ title-block-banner: false
 <img src="../images/profile-photo.jpg" alt="周正" class="profile-photo">
 ```
 
+
 # 周正
 
 ::: {.home-role}
@@ -22,39 +23,12 @@ title-block-banner: false
 清华大学  
 求真书院  
 中国，北京
-:::
 
 ::: {.home-links}
 [邮箱](mailto:zhouz23@mails.tsinghua.edu.cn)  
 [GitHub](https://github.com/ZhouZheng-Stat01)  
 [Google Scholar](https://scholar.google.com/)
 :::
-
-::: {.home-stats}
-::: {.home-stats-label}
-访问量
-:::
-```{=html}
-<span id="goatcounter-total-visits" class="home-stats-value">加载中...</span>
-<script>
-(function() {
-  function loadVisits() {
-    fetch("https://zhengzhou.goatcounter.com/counter/TOTAL.json")
-      .then(function(response) {
-        if (!response.ok) throw new Error("Counter unavailable");
-        return response.json();
-      })
-      .then(function(data) {
-        document.getElementById("goatcounter-total-visits").textContent = data.count;
-      })
-      .catch(function() {
-        document.getElementById("goatcounter-total-visits").textContent = "不可用";
-      });
-  }
-  loadVisits();
-})();
-</script>
-```
 
 ::: {.visitor-inline}
 ::: {.visitor-inline-header}
@@ -63,8 +37,9 @@ title-block-banner: false
 :::
 :::
 
-<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../files/visitor-locations.json" data-modal-title="访客来源"></div>
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../files/visitor-locations.json" data-modal-title="访客来源" data-total-label="总访客数"></div>
 :::
+
 :::
 
 :::
