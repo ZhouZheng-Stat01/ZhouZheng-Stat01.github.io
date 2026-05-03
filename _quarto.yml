@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Zheng Zhou"
-  site-url: "https://ZhouZheng.github.io/Homepage"
+  site-url: "https://ZhouZheng-Stat01.github.io/Homepage"
   description: "Academic homepage of Zheng Zhou"
   navbar:
     pinned: true
@@ -21,7 +21,7 @@ website:
         href: cv.qmd
     right:
       - icon: github
-        href: https://github.com/ZhouZheng
+        href: https://github.com/ZhouZheng-Stat01
         aria-label: GitHub
       - icon: envelope
         href: mailto:your.email@example.com
