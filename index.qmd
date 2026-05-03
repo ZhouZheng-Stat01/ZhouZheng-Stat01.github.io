@@ -1,54 +1,152 @@
 ---
 title: "Zheng Zhou"
 description: "Academic homepage"
-about:
-  template: jolla
-  image: images/profile-placeholder.svg
-  image-shape: rounded
-  links:
-    - icon: envelope
-      text: Email
-      href: mailto:your.email@example.com
-    - icon: github
-      text: GitHub
-      href: https://github.com/ZhouZheng-Stat01
-    - icon: google
-      text: Google Scholar
-      href: https://scholar.google.com/
+toc: false
+title-block-banner: false
 ---
 
-## About
+::: {.home-layout}
 
-I am **Zheng Zhou**, a researcher working on topics around **your research area**, **your second research area**, and **your third research area**.
+::: {.home-sidebar}
+```{=html}
+<img src="images/profile-photo.jpg" alt="Zheng Zhou" class="profile-photo">
+```
 
-Replace this paragraph with a concise academic bio: your current affiliation, research interests, methods, and the kinds of questions you care about.
+# Zheng Zhou
+
+::: {.home-role}
+Third-year Ph.D. Student
+:::
+
+::: {.home-affiliation}
+Qiuzhen College  
+Tsinghua University  
+Beijing, China
+:::
+
+::: {.home-links}
+[Email](mailto:zhouz23@mails.tsinghua.edu.cn)  
+[GitHub](https://github.com/ZhouZheng-Stat01)  
+[Google Scholar](https://scholar.google.com/)
+:::
+
+:::
+
+::: {.home-main}
+
+## About me
+
+I am **Zheng Zhou**, a third-year Ph.D. student at **Qiuzhen College, Tsinghua University**, advised by Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm). Before joining Tsinghua, I received my bachelor's degree in **Mathematics** from **Sun Yat-sen University**.
+
+My research interests lie broadly in **statistics**, **machine learning**, and **quantitative finance**, with a focus on statistical theory and methodology, prediction, and their applications to real-world problems. I am also interested in recent advances in artificial intelligence and how they can be incorporated into statistical research.
 
 ## Research Interests
 
-- Research direction one
-- Research direction two
-- Research direction three
-- Methods, datasets, or systems you often use
+- Model selection and model evaluation
+- Uncertainty quantification, especially conformal prediction
+- Causal inference
+- Quantitative finance
+- Learning-to-rank problems
+
+## Education
+
+::: {.cv-entry}
+::: {.cv-entry-main}
+**Ph.D. Student in Statistics**  
+Qiuzhen College, Tsinghua University  
+Advisor: Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm)
+:::
+::: {.cv-entry-date}
+2023-present
+:::
+:::
+
+::: {.cv-entry}
+::: {.cv-entry-main}
+**B.S. in Mathematics**  
+Sun Yat-sen University
+:::
+::: {.cv-entry-date}
+2019-2023
+:::
+:::
 
 ## News
 
-- **May 2026**: This academic homepage is under construction.
-- **Month 2026**: Add recent papers, talks, awards, or project updates here.
+::: {.news-list}
+::: {.news-item}
+::: {.news-date}
+May 2026
+:::
+::: {.news-text}
+Launched this academic homepage with Quarto and GitHub Pages.
+:::
+:::
+
+::: {.news-item}
+::: {.news-date}
+April 2026
+:::
+::: {.news-text}
+Posted a new preprint on conformal prediction assessment to arXiv.
+:::
+:::
+:::
 
 ## Selected Publications
 
-- **Paper Title Goes Here**  
-  Zheng Zhou, Coauthor Name. *Conference or Journal*, 2026.  
-  [PDF](#) / [Code](#) / [DOI](#)
+::: {.publication-note}
+\* Equal contribution. † Corresponding author.
+:::
 
-- **Another Representative Paper**  
-  Zheng Zhou, Coauthor Name. *Conference or Journal*, 2025.  
-  [PDF](#) / [Project](#)
+::: {.publication-entry}
+::: {.publication-title}
+Conformal Prediction Assessment: A Framework for Conditional Coverage Evaluation and Selection
+:::
+::: {.publication-authors}
+Zheng Zhou\*, Xiangfei Zhang\*, Chongguang Tao\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2603.27189) / [PDF](https://arxiv.org/pdf/2603.27189) / [DOI](https://doi.org/10.48550/arXiv.2603.27189)
+:::
+:::
 
 See the full list on the [Publications](publications.qmd) page.
 
 ## Contact
 
-Email: [your.email@example.com](mailto:your.email@example.com)  
-Office: Your office or lab address  
-Affiliation: Your university, department, or research group
+::: {.contact-grid}
+::: {.contact-item}
+::: {.contact-label}
+Email
+:::
+::: {.contact-value}
+[zhouz23@mails.tsinghua.edu.cn](mailto:zhouz23@mails.tsinghua.edu.cn)
+:::
+:::
+
+::: {.contact-item}
+::: {.contact-label}
+GitHub
+:::
+::: {.contact-value}
+[ZhouZheng-Stat01](https://github.com/ZhouZheng-Stat01)
+:::
+:::
+
+::: {.contact-item}
+::: {.contact-label}
+Affiliation
+:::
+::: {.contact-value}
+Qiuzhen College, Tsinghua University
+:::
+:::
+:::
+
+:::
+
+:::

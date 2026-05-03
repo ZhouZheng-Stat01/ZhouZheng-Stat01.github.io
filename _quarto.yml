@@ -13,18 +13,12 @@ website:
         href: index.qmd
       - text: Publications
         href: publications.qmd
-      - text: Projects
-        href: projects.qmd
-      - text: Teaching
-        href: teaching.qmd
-      - text: CV
-        href: cv.qmd
     right:
       - icon: github
         href: https://github.com/ZhouZheng-Stat01
         aria-label: GitHub
       - icon: envelope
-        href: mailto:your.email@example.com
+        href: mailto:zhouz23@mails.tsinghua.edu.cn
         aria-label: Email
   page-footer:
     left: "© 2026 Zheng Zhou"
@@ -35,6 +29,7 @@ format:
     theme:
       - cosmo
       - styles/styles.scss
+    include-in-header: includes/goatcounter.html
     toc: true
     toc-location: right
     smooth-scroll: true

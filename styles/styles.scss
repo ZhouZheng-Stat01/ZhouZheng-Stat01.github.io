@@ -14,6 +14,10 @@ body {
   line-height: 1.65;
 }
 
+.page-columns .content {
+  max-width: none;
+}
+
 .navbar {
   border-bottom: 1px solid #e6e8ec;
 }
@@ -42,4 +46,248 @@ a {
 
 .quarto-title-banner {
   background: #f6f8fa;
+}
+
+#title-block-header {
+  display: none;
+}
+
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 3.25rem;
+  align-items: start;
+  width: calc(100vw - 5rem);
+  max-width: 1500px;
+  margin-left: calc((100% - 100vw) / 2 + 3rem);
+  margin-right: auto;
+  padding-top: 1.25rem;
+}
+
+.home-sidebar {
+  position: sticky;
+  top: 5rem;
+  padding-top: 0.1rem;
+  color: #4b5565;
+  font-size: 0.95rem;
+}
+
+.profile-photo {
+  width: 200px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #e6e8ec;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 1.15rem;
+  box-shadow: 0 6px 18px rgba(31, 41, 55, 0.08);
+}
+
+.home-sidebar h1 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.home-role {
+  color: #243043;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.home-affiliation {
+  color: #667085;
+  margin-bottom: 1.2rem;
+}
+
+.home-links {
+  border-top: 1px solid #e6e8ec;
+  padding-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.home-sidebar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d8dee8;
+  border-radius: 999px;
+  color: #344054;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.45rem 0.75rem;
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+.home-sidebar a:hover {
+  background-color: #f6f8fa;
+  border-color: #1f6feb;
+  color: #1f6feb;
+}
+
+.home-main {
+  font-size: 1.03rem;
+  max-width: 1060px;
+}
+
+.home-main h2:first-child {
+  margin-top: 0;
+}
+
+.home-main h2 {
+  margin-top: 2.15rem;
+  margin-bottom: 0.85rem;
+}
+
+.home-main p {
+  margin-bottom: 1rem;
+}
+
+.home-main ul {
+  padding-left: 1.2rem;
+}
+
+.home-main li {
+  margin-bottom: 0.35rem;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  margin: 0.9rem 0 1.1rem;
+}
+
+.cv-entry-main {
+  min-width: 0;
+}
+
+.cv-entry-date {
+  color: #667085;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.news-list {
+  margin: 0.75rem 0 1.2rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.news-date {
+  color: #667085;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.news-text {
+  min-width: 0;
+}
+
+.publication-note {
+  color: #667085;
+  font-size: 0.92rem;
+  margin: 0.25rem 0 0.9rem;
+}
+
+.publication-entry {
+  border-left: 3px solid #d8dee8;
+  margin: 1rem 0 1.2rem;
+  padding: 0.15rem 0 0.15rem 1rem;
+}
+
+.publication-title {
+  color: #1f2937;
+  font-weight: 650;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+
+.publication-authors {
+  color: #344054;
+  margin-bottom: 0.2rem;
+}
+
+.publication-meta {
+  color: #667085;
+  margin-bottom: 0.35rem;
+}
+
+.publication-links a {
+  font-weight: 500;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 1.25rem;
+  row-gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.contact-item {
+  display: contents;
+}
+
+.contact-label {
+  color: #667085;
+  font-weight: 600;
+}
+
+.contact-value {
+  color: #243043;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-sidebar {
+    position: static;
+    border-bottom: 1px solid #e6e8ec;
+    padding-bottom: 1.25rem;
+  }
+
+  .home-sidebar h1 {
+    font-size: 1.65rem;
+  }
+
+  .profile-photo {
+    width: 150px;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+
+  .contact-label {
+    margin-top: 0.45rem;
+  }
 }
