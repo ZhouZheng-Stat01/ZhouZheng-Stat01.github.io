@@ -208,7 +208,7 @@
       mapWrap: mapWrap,
       details: details,
       open: function(payload, modalTitle, totalLabel) {
-        title.textContent = modalTitle || 'Visitor Sources';
+        title.textContent = modalTitle || '访客统计';
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         details.setAttribute('data-total-label', totalLabel || 'Total visits');
@@ -225,12 +225,12 @@
     container.setAttribute('role', 'button');
     container.setAttribute('aria-label', 'Open visitor source map');
     container.addEventListener('click', function() {
-      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources', container.getAttribute('data-total-label') || 'Total visits');
+      createModal().open(payload, container.getAttribute('data-modal-title') || '访客统计', container.getAttribute('data-total-label') || 'Total visits');
     });
     container.addEventListener('keydown', function(event) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor Sources', container.getAttribute('data-total-label') || 'Total visits');
+        createModal().open(payload, container.getAttribute('data-modal-title') || '访客统计', container.getAttribute('data-total-label') || 'Total visits');
       }
     });
   }
