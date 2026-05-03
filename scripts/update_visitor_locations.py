@@ -79,11 +79,12 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
 
     rows = payload.get("stats") or payload.get("hits") or []
     
-    # Map location names for geopolitical consistency
-    name_mapping = {
-        "Taiwan": "China Taiwan",
-        "Hong Kong": "China Hong Kong",
-        "Macau": "China Macau",
+    # Keep Plotly's recognized location name separate from the public display name.
+    display_name_mapping = {
+        "Taiwan": "Taiwan, China",
+        "Hong Kong": "Hong Kong, China",
+        "Macau": "Macau, China",
+        "Macao": "Macao, China",
     }
     
     locations = []
@@ -92,9 +93,10 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
         count = row.get("count", 0)
         if not name or not count:
             continue
-        # Apply name mapping
-        name = name_mapping.get(name, name)
-        locations.append({"name": name, "count": int(count)})
+        item = {"name": display_name_mapping.get(name, name), "count": int(count)}
+        if name in display_name_mapping:
+            item["plotly_name"] = name
+        locations.append(item)
 
     locations.sort(key=lambda item: item["count"], reverse=True)
 

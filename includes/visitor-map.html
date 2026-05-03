@@ -95,8 +95,9 @@
     var plotData = [{
       type: 'choropleth',
       locationmode: 'country names',
-      locations: topLocations.map(function(item) { return item.name; }),
+      locations: topLocations.map(function(item) { return item.plotly_name || item.name; }),
       z: topLocations.map(function(item) { return item.count; }),
+      customdata: topLocations.map(function(item) { return item.name; }),
       colorscale: [
         [0.0, '#f0f9ff'],
         [0.2, '#e0f2fe'],
@@ -114,7 +115,7 @@
         tickfont: { color: '#667085' },
         tickcolor: '#cbd5e1'
       } : undefined,
-      hovertemplate: '<b>%{location}</b><br>Visits: %{z}<extra></extra>'
+      hovertemplate: '<b>%{customdata}</b><br>Visits: %{z}<extra></extra>'
     }];
 
     var layout = {
