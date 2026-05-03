@@ -41,7 +41,8 @@ h2 {
 }
 
 a {
-  text-underline-offset: 0.15em;
+  text-decoration: none;
+  color: $link-color;
 }
 
 .quarto-title-banner {
