@@ -4,6 +4,8 @@ project:
   render:
     - "*.qmd"
     - "posts/"
+  resources:
+    - ../files/visitor-locations.json
 
 website:
   title: "周正"
@@ -41,6 +43,7 @@ format:
     include-in-header:
       - ../includes/goatcounter.html
       - ../includes/language-switch.html
+      - ../includes/visitor-map.html
     toc: true
     toc-location: right
     smooth-scroll: true

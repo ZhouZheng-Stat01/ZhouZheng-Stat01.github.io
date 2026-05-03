@@ -5,6 +5,8 @@ project:
     - "*.qmd"
     - "posts/"
     - "!zh/"
+  resources:
+    - files/visitor-locations.json
 
 website:
   title: "Zheng Zhou"
@@ -42,6 +44,7 @@ format:
     include-in-header:
       - includes/goatcounter.html
       - includes/language-switch.html
+      - includes/visitor-map.html
     toc: true
     toc-location: right
     smooth-scroll: true

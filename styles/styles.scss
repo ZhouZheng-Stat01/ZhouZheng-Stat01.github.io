@@ -158,6 +158,52 @@ a {
   font-weight: 650;
 }
 
+.visitor-map-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  margin: 1.1rem 0 1.5rem;
+  padding: 1rem 1rem 0.85rem;
+}
+
+.visitor-map-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.visitor-map-title {
+  color: #1f2937;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.visitor-map-subtitle {
+  color: #667085;
+  font-size: 0.92rem;
+}
+
+.visitor-map {
+  min-height: 390px;
+}
+
+.visitor-map-empty {
+  align-items: center;
+  color: #667085;
+  display: flex;
+  font-size: 0.95rem;
+  justify-content: center;
+  min-height: 390px;
+  text-align: center;
+}
+
+.visitor-map-empty-error {
+  color: #b42318;
+}
+
 .home-main {
   font-size: 1.03rem;
   max-width: 930px;

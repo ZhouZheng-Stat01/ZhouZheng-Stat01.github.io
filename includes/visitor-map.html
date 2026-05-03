@@ -1,0 +1,118 @@
+<script>
+(function() {
+  function ensurePlotly() {
+    if (window.Plotly) {
+      return Promise.resolve();
+    }
+
+    return new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.plot.ly/plotly-2.35.2.min.js';
+      script.async = true;
+      script.dataset.plotlyLib = 'true';
+      script.onload = function() { resolve(); };
+      script.onerror = function() { reject(new Error('Plotly failed to load')); };
+      document.head.appendChild(script);
+    });
+  }
+
+  function showMessage(container, message, tone) {
+    container.innerHTML = '';
+    var note = document.createElement('div');
+    note.className = 'visitor-map-empty visitor-map-empty-' + (tone || 'neutral');
+    note.textContent = message;
+    container.appendChild(note);
+  }
+
+  function renderMap(container, payload) {
+    var locations = payload.locations || [];
+    if (!locations.length) {
+      showMessage(container, 'Visitor location data will appear after the next scheduled update.', 'neutral');
+      return;
+    }
+
+    var topLocations = locations.slice(0, 80);
+    var plotData = [{
+      type: 'choropleth',
+      locationmode: 'country names',
+      locations: topLocations.map(function(item) { return item.name; }),
+      z: topLocations.map(function(item) { return item.count; }),
+      colorscale: [
+        [0.0, '#e0f2fe'],
+        [0.25, '#bae6fd'],
+        [0.5, '#7dd3fc'],
+        [0.75, '#3b82f6'],
+        [1.0, '#1d4ed8']
+      ],
+      marker: { line: { color: '#ffffff', width: 0.6 } },
+      colorbar: {
+        title: 'Visits',
+        thickness: 12,
+        outlinewidth: 0,
+        tickfont: { color: '#667085' }
+      },
+      hovertemplate: '%{location}<br>Visits: %{z}<extra></extra>'
+    }];
+
+    var layout = {
+      margin: { l: 0, r: 0, t: 0, b: 0 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)',
+      font: {
+        family: 'Inter, Source Sans 3, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+        color: '#243043'
+      },
+      geo: {
+        projection: { type: 'natural earth' },
+        showframe: false,
+        showcoastlines: false,
+        showland: true,
+        landcolor: '#f8fafc',
+        bgcolor: 'rgba(0,0,0,0)'
+      }
+    };
+
+    Plotly.newPlot(container, plotData, layout, {
+      displayModeBar: false,
+      responsive: true,
+      scrollZoom: false
+    });
+  }
+
+  function loadVisitorData(container) {
+    var source = container.getAttribute('data-source');
+    fetch(source, { cache: 'no-store' })
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Visitor data unavailable');
+        }
+        return response.json();
+      })
+      .then(function(payload) {
+        if (payload.error) {
+          showMessage(container, 'Visitor map unavailable for now: ' + payload.error, 'error');
+          return;
+        }
+        renderMap(container, payload);
+      })
+      .catch(function(error) {
+        showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var container = document.getElementById('visitor-heatmap');
+    if (!container) {
+      return;
+    }
+
+    ensurePlotly()
+      .then(function() {
+        loadVisitorData(container);
+      })
+      .catch(function(error) {
+        showMessage(container, error.message || 'Visitor map unavailable.', 'error');
+      });
+  });
+})();
+</script>

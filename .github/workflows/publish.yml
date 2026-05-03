@@ -3,6 +3,8 @@ name: Publish Quarto Site
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -20,6 +22,17 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Update visitor geo data
+        env:
+          GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+          GOATCOUNTER_SITE_CODE: zhengzhou
+        run: python scripts/update_visitor_locations.py
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2

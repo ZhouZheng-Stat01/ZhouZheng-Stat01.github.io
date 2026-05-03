@@ -128,6 +128,21 @@ title-block-banner: false
 :::
 :::
 
+## 访客来源
+
+::: {.visitor-map-card}
+::: {.visitor-map-header}
+::: {.visitor-map-title}
+国家/地区热度图
+:::
+::: {.visitor-map-subtitle}
+每日从 GoatCounter 更新。
+:::
+:::
+
+<div id="visitor-heatmap" class="visitor-map" data-source="../files/visitor-locations.json"></div>
+:::
+
 ## 代表论文
 
 ::: {.publication-note}
