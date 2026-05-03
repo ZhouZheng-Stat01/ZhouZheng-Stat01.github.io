@@ -98,21 +98,23 @@
       locations: topLocations.map(function(item) { return item.name; }),
       z: topLocations.map(function(item) { return item.count; }),
       colorscale: [
-        [0.0, '#e0f2fe'],
-        [0.25, '#bae6fd'],
-        [0.5, '#7dd3fc'],
-        [0.75, '#3b82f6'],
-        [1.0, '#1d4ed8']
+        [0.0, '#f0f9ff'],
+        [0.2, '#e0f2fe'],
+        [0.4, '#bae6fd'],
+        [0.6, '#7dd3fc'],
+        [0.8, '#0284c7'],
+        [1.0, '#0c4a6e']
       ],
-      marker: { line: { color: '#ffffff', width: 0.6 } },
+      marker: { line: { color: '#e2e8f0', width: 0.8 } },
       showscale: !!options.showColorbar,
       colorbar: options.showColorbar ? {
         title: 'Visits',
         thickness: 12,
         outlinewidth: 0,
-        tickfont: { color: '#667085' }
+        tickfont: { color: '#667085' },
+        tickcolor: '#cbd5e1'
       } : undefined,
-      hovertemplate: '%{location}<br>Visits: %{z}<extra></extra>'
+      hovertemplate: '<b>%{location}</b><br>Visits: %{z}<extra></extra>'
     }];
 
     var layout = {
@@ -124,11 +126,19 @@
         color: '#243043'
       },
       geo: {
-        projection: { type: 'natural earth' },
-        showframe: false,
-        showcoastlines: false,
+        projection: { type: 'equirectangular' },
+        showframe: true,
+        framecolor: '#e2e8f0',
+        framewidth: 1,
+        showcoastlines: true,
+        coastlinecolor: '#cbd5e1',
+        coastlinewidth: 0.8,
+        showlakes: true,
+        lakecolor: '#f0f9ff',
         showland: true,
-        landcolor: '#f8fafc',
+        landcolor: '#f1f5f9',
+        countrycolor: '#e2e8f0',
+        countrywidth: 0.8,
         bgcolor: 'rgba(0,0,0,0)'
       }
     };
