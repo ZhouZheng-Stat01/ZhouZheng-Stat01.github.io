@@ -78,7 +78,9 @@ My research interests lie broadly in **statistics**, **machine learning**, and *
 ## Education
 
 ::: {.education-entry}
+<a href="https://qzc.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">
 <img src="images/qiuzhen-logo.png" alt="Qiuzhen College, Tsinghua University logo" class="education-logo education-logo-wide">
+</a>
 
 ::: {.education-main}
 **Ph.D. Student in Statistics**  
@@ -91,7 +93,9 @@ Advisor: Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm
 :::
 
 ::: {.education-entry}
+<a href="https://www.sysu.edu.cn/" target="_blank" rel="noopener noreferrer">
 <img src="images/logo1.png" alt="Sun Yat-sen University logo" class="education-logo education-logo-wide">
+</a>
 
 ::: {.education-main}
 **B.S. in Mathematics**  

@@ -78,7 +78,9 @@ title-block-banner: false
 ## 教育经历
 
 ::: {.education-entry}
+<a href="https://qzc.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">
 <img src="../images/qiuzhen-logo.png" alt="清华大学求真书院标志" class="education-logo education-logo-wide">
+</a>
 
 ::: {.education-main}
 **统计学博士生**  
@@ -91,7 +93,9 @@ title-block-banner: false
 :::
 
 ::: {.education-entry}
+<a href="https://www.sysu.edu.cn/" target="_blank" rel="noopener noreferrer">
 <img src="../images/logo1.png" alt="中山大学标志" class="education-logo education-logo-wide">
+</a>
 
 ::: {.education-main}
 **数学学士**  

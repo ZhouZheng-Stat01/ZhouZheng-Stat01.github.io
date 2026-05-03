@@ -1,6 +1,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const path = window.location.pathname;
+  const rawPath = window.location.pathname;
+  const path = rawPath.includes("/_site/") ? rawPath.replace(/^.*\/_site/, "") : rawPath;
   const languageLink = Array.from(document.querySelectorAll(".navbar a.nav-link"))
     .find(function(link) {
       const text = link.textContent.trim();
@@ -10,27 +11,37 @@ document.addEventListener("DOMContentLoaded", function() {
   if (!languageLink) return;
 
   const inChineseSite = path.includes("/zh/");
+
+  if (path.includes("/posts/")) {
+    if (inChineseSite) {
+      languageLink.setAttribute("href", path.replace(/^\/zh/, ""));
+    } else {
+      languageLink.setAttribute("href", "/zh" + path);
+    }
+    return;
+  }
+
   const page = path.split("/").filter(Boolean).pop() || "index.html";
 
   if (inChineseSite) {
     if (page === "blog.html") {
-      languageLink.setAttribute("href", "../blog.html");
+      languageLink.setAttribute("href", "/blog.html");
     } else if (page === "publications.html") {
-      languageLink.setAttribute("href", "../publications.html");
+      languageLink.setAttribute("href", "/publications.html");
     } else if (page === "links.html") {
-      languageLink.setAttribute("href", "../links.html");
+      languageLink.setAttribute("href", "/links.html");
     } else {
-      languageLink.setAttribute("href", "../index.html");
+      languageLink.setAttribute("href", "/index.html");
     }
   } else {
     if (page === "blog.html") {
-      languageLink.setAttribute("href", "zh/blog.html");
+      languageLink.setAttribute("href", "/zh/blog.html");
     } else if (page === "publications.html") {
-      languageLink.setAttribute("href", "zh/publications.html");
+      languageLink.setAttribute("href", "/zh/publications.html");
     } else if (page === "links.html") {
-      languageLink.setAttribute("href", "zh/links.html");
+      languageLink.setAttribute("href", "/zh/links.html");
     } else {
-      languageLink.setAttribute("href", "zh/");
+      languageLink.setAttribute("href", "/zh/");
     }
   }
 });
