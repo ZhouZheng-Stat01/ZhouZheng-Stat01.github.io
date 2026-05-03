@@ -35,7 +35,7 @@
 
   function renderDetails(container, payload) {
     var totalLabel = container.getAttribute('data-total-label') || 'Total visits';
-    var totalCount = payload.total || (payload.locations || []).reduce(function(current, item) {
+    var totalCount = (payload.locations || []).reduce(function(current, item) {
       return current + (item.count || 0);
     }, 0);
     var locations = (payload.locations || []).slice(0, 10);
@@ -208,7 +208,7 @@
       mapWrap: mapWrap,
       details: details,
       open: function(payload, modalTitle, totalLabel) {
-        title.textContent = modalTitle || '访客统计';
+        title.textContent = modalTitle || 'Visitor statistics';
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         details.setAttribute('data-total-label', totalLabel || 'Total visits');
@@ -225,12 +225,12 @@
     container.setAttribute('role', 'button');
     container.setAttribute('aria-label', 'Open visitor source map');
     container.addEventListener('click', function() {
-      createModal().open(payload, container.getAttribute('data-modal-title') || '访客统计', container.getAttribute('data-total-label') || 'Total visits');
+      createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits');
     });
     container.addEventListener('keydown', function(event) {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        createModal().open(payload, container.getAttribute('data-modal-title') || '访客统计', container.getAttribute('data-total-label') || 'Total visits');
+        createModal().open(payload, container.getAttribute('data-modal-title') || 'Visitor statistics', container.getAttribute('data-total-label') || 'Total visits');
       }
     });
   }
