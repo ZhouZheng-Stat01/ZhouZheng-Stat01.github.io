@@ -164,7 +164,7 @@ a {
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
   margin-top: 1rem;
-  padding: 0.75rem;
+  padding: 0.6rem;
   width: 200px;
   max-width: 100%;
   display: flex;
@@ -176,7 +176,7 @@ a {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .visitor-inline-title {
@@ -196,7 +196,7 @@ a {
 
 .visitor-map-sidebar {
   cursor: zoom-in;
-  min-height: 150px;
+  min-height: 120px;
   flex: 1;
 }
 
