@@ -78,12 +78,22 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
         }
 
     rows = payload.get("stats") or payload.get("hits") or []
+    
+    # Map location names for geopolitical consistency
+    name_mapping = {
+        "Taiwan": "China Taiwan",
+        "Hong Kong": "China Hong Kong",
+        "Macau": "China Macau",
+    }
+    
     locations = []
     for row in rows:
         name = row.get("name") or row.get("id")
         count = row.get("count", 0)
         if not name or not count:
             continue
+        # Apply name mapping
+        name = name_mapping.get(name, name)
         locations.append({"name": name, "count": int(count)})
 
     locations.sort(key=lambda item: item["count"], reverse=True)
