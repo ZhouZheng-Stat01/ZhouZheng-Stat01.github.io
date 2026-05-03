@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Zheng Zhou"
-  site-url: "https://ZhouZheng-Stat01.github.io/Homepage"
+  site-url: "https://ZhouZheng-Stat01.github.io"
   description: "Academic homepage of Zheng Zhou"
   navbar:
     pinned: true
