@@ -46,7 +46,7 @@ def empty_payload(site_code: str, message: str) -> dict:
         "updated_at": utc_now_iso(),
         "site_code": site_code,
         "source": "GoatCounter",
-        "error": message,
+        "message": message,
         "total": 0,
         "locations": [],
     }
@@ -54,7 +54,7 @@ def empty_payload(site_code: str, message: str) -> dict:
 
 def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit: int) -> dict:
     if not api_token:
-        return empty_payload(site_code, "Missing GOATCOUNTER_API_TOKEN")
+        return empty_payload(site_code, "Visitor map will appear after the next scheduled update.")
 
     request = urllib.request.Request(
         build_url(site_code, start, end, limit),
@@ -68,7 +68,14 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as exc:
-        return empty_payload(site_code, f"{exc.__class__.__name__}: {exc}")
+        return {
+            "updated_at": utc_now_iso(),
+            "site_code": site_code,
+            "source": "GoatCounter",
+            "error": f"{exc.__class__.__name__}: {exc}",
+            "total": 0,
+            "locations": [],
+        }
 
     rows = payload.get("stats") or payload.get("hits") or []
     locations = []

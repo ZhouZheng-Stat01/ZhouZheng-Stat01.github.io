@@ -93,6 +93,10 @@
           showMessage(container, 'Visitor map unavailable for now: ' + payload.error, 'error');
           return;
         }
+        if (payload.message && !payload.locations.length) {
+          showMessage(container, payload.message, 'neutral');
+          return;
+        }
         renderMap(container, payload);
       })
       .catch(function(error) {
