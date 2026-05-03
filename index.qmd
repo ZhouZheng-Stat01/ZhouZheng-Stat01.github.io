@@ -63,7 +63,7 @@ Visits
 
 ## About me
 
-I am **Zheng Zhou**, a third-year Ph.D. student at **Qiuzhen College, Tsinghua University**, advised by Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm). Before joining Tsinghua, I received my bachelor's degree in **Mathematics** from **Sun Yat-sen University**.
+I am **Zheng Zhou**, a third-year Ph.D. student at **Qiuzhen College, Tsinghua University**, advised by Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/en/info/1031/2760.htm). Before joining Tsinghua, I received my bachelor's degree in **Mathematics** from **Sun Yat-sen University**.
 
 My research interests lie broadly in **statistics**, **machine learning**, and **quantitative finance**, with a focus on statistical theory and methodology, prediction, and their applications to real-world problems. I am also interested in recent advances in artificial intelligence and how they can be incorporated into statistical research.
 
@@ -85,7 +85,7 @@ My research interests lie broadly in **statistics**, **machine learning**, and *
 ::: {.education-main}
 **Ph.D. Student in Statistics**  
 Qiuzhen College, Tsinghua University  
-Advisor: Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/info/1031/3506.htm)
+Advisor: Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/en/info/1031/2760.htm)
 :::
 ::: {.education-date}
 2023-present
