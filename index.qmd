@@ -11,7 +11,7 @@ about:
       href: mailto:your.email@example.com
     - icon: github
       text: GitHub
-      href: https://github.com/your-github-username
+      href: https://github.com/ZhouZheng-Stat01
     - icon: google
       text: Google Scholar
       href: https://scholar.google.com/
