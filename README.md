@@ -88,7 +88,7 @@ refreshed during deployment.
 
 The GitHub Actions workflow in `.github/workflows/publish.yml` builds and deploys
 the site to GitHub Pages when changes are pushed to `main`. It also runs on a
-schedule to refresh visitor-location data.
+hourly schedule to refresh visitor-location data.
 
 For the scheduled visitor updates to work, add `GOATCOUNTER_API_TOKEN` as a
 repository secret.

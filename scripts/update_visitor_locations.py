@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--api-token", default=os.environ.get("GOATCOUNTER_API_TOKEN", ""))
     parser.add_argument("--start", default="2000-01-01T00:00:00Z")
     parser.add_argument("--end", default="")
-    parser.add_argument("--limit", type=int, default=200)
+    parser.add_argument("--limit", type=int, default=100)
     return parser.parse_args()
 
 
@@ -30,7 +30,7 @@ def utc_now_iso() -> str:
 
 
 def build_url(site_code: str, start: str, end: str, limit: int) -> str:
-    params = {"start": start, "limit": str(limit)}
+    params = {"start": start, "limit": str(min(limit, 100))}
     if end:
         params["end"] = end
     return f"https://{site_code}.goatcounter.com/api/v0/stats/locations?{urllib.parse.urlencode(params)}"
@@ -38,7 +38,8 @@ def build_url(site_code: str, start: str, end: str, limit: int) -> str:
 
 def write_payload(output_path: pathlib.Path, payload: dict) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    public_payload = {key: value for key, value in payload.items() if key != "debug_error"}
+    output_path.write_text(json.dumps(public_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def empty_payload(site_code: str, message: str) -> dict:
@@ -68,14 +69,9 @@ def fetch_locations(api_token: str, site_code: str, start: str, end: str, limit:
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as exc:
-        return {
-            "updated_at": utc_now_iso(),
-            "site_code": site_code,
-            "source": "GoatCounter",
-            "error": f"{exc.__class__.__name__}: {exc}",
-            "total": 0,
-            "locations": [],
-        }
+        payload = empty_payload(site_code, "Visitor location data is temporarily unavailable.")
+        payload["debug_error"] = f"{exc.__class__.__name__}: {exc}"
+        return payload
 
     rows = payload.get("stats") or payload.get("hits") or []
     
@@ -119,8 +115,8 @@ def main() -> int:
     args = parse_args()
     payload = fetch_locations(args.api_token, args.site_code, args.start, args.end, args.limit)
     write_payload(pathlib.Path(args.output), payload)
-    if payload.get("error"):
-        print(payload["error"], file=sys.stderr)
+    if payload.get("debug_error"):
+        print(payload["debug_error"], file=sys.stderr)
     else:
         print(f"Wrote {args.output} with {len(payload.get('locations', []))} locations.")
     return 0

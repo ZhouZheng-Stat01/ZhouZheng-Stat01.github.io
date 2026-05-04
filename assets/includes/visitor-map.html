@@ -23,6 +23,7 @@
     en: {
       close: 'Close',
       empty: 'No location data yet.',
+      dataUnavailable: 'Visitor location data is temporarily unavailable.',
       loadingEmpty: 'Visitor location data will appear after the next scheduled update.',
       mapUnavailable: 'Visitor map unavailable.',
       openLabel: 'Open visitor source map',
@@ -32,6 +33,7 @@
     'zh-CN': {
       close: '关闭',
       empty: '暂无地区数据。',
+      dataUnavailable: '访客地区数据暂时不可用。',
       loadingEmpty: '访客地区数据将在下次更新后显示。',
       mapUnavailable: '访客地图暂时不可用。',
       openLabel: '打开访客来源地图',
@@ -341,7 +343,7 @@
 
   function renderVisitorMap(container, payload) {
     if (payload.error) {
-      showMessage(container, textFor(getLocale(container), 'mapUnavailable') + ' ' + payload.error, 'error');
+      showMessage(container, textFor(getLocale(container), 'dataUnavailable'), 'neutral');
       return;
     }
 
