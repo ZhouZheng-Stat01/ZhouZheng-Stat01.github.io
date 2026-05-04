@@ -16,7 +16,7 @@ import urllib.request
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", default="files/visitor-locations.json")
+    parser.add_argument("--output", default="assets/data/visitor-locations.json")
     parser.add_argument("--site-code", default=os.environ.get("GOATCOUNTER_SITE_CODE", "zhengzhou"))
     parser.add_argument("--api-token", default=os.environ.get("GOATCOUNTER_API_TOKEN", ""))
     parser.add_argument("--start", default="2000-01-01T00:00:00Z")

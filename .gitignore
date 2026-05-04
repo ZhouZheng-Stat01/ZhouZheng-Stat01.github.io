@@ -1,10 +1,10 @@
-.quarto/
 /.quarto/
+**/.quarto/
 /_site/
 /.DS_Store
 /.Rproj.user/
 *.Rproj
 
 **/*.quarto_ipynb
-images/微信图片_*.jpg
-files/visitor-locations.json
+assets/images/微信图片_*.jpg
+assets/data/visitor-locations.json

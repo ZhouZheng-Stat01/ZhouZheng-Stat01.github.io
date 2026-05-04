@@ -5,7 +5,7 @@ project:
     - "*.qmd"
     - "posts/"
   resources:
-    - ../files/visitor-locations.json
+    - ../assets/data/visitor-locations.json
 
 website:
   title: "周正"
@@ -39,11 +39,11 @@ format:
   html:
     theme:
       - cosmo
-      - ../styles/styles.scss
+      - ../assets/styles/styles.scss
     include-in-header:
-      - ../includes/goatcounter.html
-      - ../includes/language-switch.html
-      - ../includes/visitor-map.html
+      - ../assets/includes/goatcounter.html
+      - ../assets/includes/language-switch.html
+      - ../assets/includes/visitor-map.html
     toc: true
     toc-location: right
     smooth-scroll: true

@@ -9,7 +9,7 @@ title-block-banner: false
 
 ::: {.home-sidebar}
 ```{=html}
-<img src="images/profile-photo.jpg" alt="Zheng Zhou" class="profile-photo">
+<img src="assets/images/profile-photo.jpg" alt="Zheng Zhou" class="profile-photo">
 ```
 
 # Zheng Zhou
@@ -37,7 +37,7 @@ Visitor statistics
 :::
 :::
 
-<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="files/visitor-locations.json" data-modal-title="Visitor statistics" data-total-label="Total visits" data-locale="en"></div>
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="assets/data/visitor-locations.json" data-modal-title="Visitor statistics" data-total-label="Total visits" data-locale="en"></div>
 :::
 :::
 
@@ -61,7 +61,7 @@ My research interests lie broadly in **statistics**, **machine learning**, and *
 
 ::: {.education-entry}
 <a href="https://qzc.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">
-<img src="images/qiuzhen-logo.png" alt="Qiuzhen College, Tsinghua University logo" class="education-logo education-logo-wide">
+<img src="assets/images/qiuzhen-logo.png" alt="Qiuzhen College, Tsinghua University logo" class="education-logo education-logo-wide">
 </a>
 
 ::: {.education-main}
@@ -76,7 +76,7 @@ Advisor: Professor [Yuhong Yang](https://ymsc.tsinghua.edu.cn/en/info/1031/2760.
 
 ::: {.education-entry}
 <a href="https://www.sysu.edu.cn/" target="_blank" rel="noopener noreferrer">
-<img src="images/logo1.png" alt="Sun Yat-sen University logo" class="education-logo education-logo-wide">
+<img src="assets/images/logo1.png" alt="Sun Yat-sen University logo" class="education-logo education-logo-wide">
 </a>
 
 ::: {.education-main}

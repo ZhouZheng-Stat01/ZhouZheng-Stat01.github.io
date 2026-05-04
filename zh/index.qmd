@@ -9,7 +9,7 @@ title-block-banner: false
 
 ::: {.home-sidebar}
 ```{=html}
-<img src="../images/profile-photo.jpg" alt="周正" class="profile-photo">
+<img src="../assets/images/profile-photo.jpg" alt="周正" class="profile-photo">
 ```
 
 
@@ -37,7 +37,7 @@ title-block-banner: false
 :::
 :::
 
-<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../files/visitor-locations.json" data-modal-title="访客统计" data-total-label="总访客数" data-locale="zh-CN"></div>
+<div id="visitor-map-sidebar" class="visitor-map visitor-map-sidebar" data-source="../assets/data/visitor-locations.json" data-modal-title="访客统计" data-total-label="总访客数" data-locale="zh-CN"></div>
 :::
 
 :::
@@ -64,7 +64,7 @@ title-block-banner: false
 
 ::: {.education-entry}
 <a href="https://qzc.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer">
-<img src="../images/qiuzhen-logo.png" alt="清华大学求真书院标志" class="education-logo education-logo-wide">
+<img src="../assets/images/qiuzhen-logo.png" alt="清华大学求真书院标志" class="education-logo education-logo-wide">
 </a>
 
 ::: {.education-main}
@@ -79,7 +79,7 @@ title-block-banner: false
 
 ::: {.education-entry}
 <a href="https://www.sysu.edu.cn/" target="_blank" rel="noopener noreferrer">
-<img src="../images/logo1.png" alt="中山大学标志" class="education-logo education-logo-wide">
+<img src="../assets/images/logo1.png" alt="中山大学标志" class="education-logo education-logo-wide">
 </a>
 
 ::: {.education-main}
