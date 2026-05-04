@@ -33,7 +33,7 @@ website:
         aria-label: Email
   page-footer:
     left: "© 2026 周正"
-    center: '<span class="site-last-updated">最近更新：<span data-last-updated data-locale="zh-CN"></span></span>'
+    center: '<span class="site-last-updated">最近更新：<span data-last-updated data-locale="zh-CN"></span>（北京时间）</span>'
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:

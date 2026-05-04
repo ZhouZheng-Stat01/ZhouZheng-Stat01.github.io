@@ -34,7 +34,7 @@ website:
         aria-label: Email
   page-footer:
     left: "© 2026 Zheng Zhou"
-    center: '<span class="site-last-updated">Last updated: <span data-last-updated data-locale="en"></span></span>'
+    center: '<span class="site-last-updated">Last updated: <span data-last-updated data-locale="en"></span> (Beijing time)</span>'
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:

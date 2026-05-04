@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Write footer last updated time
+        run: python scripts/write_footer_updated_include.py
+
       - name: Update visitor location data
         env:
           GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
