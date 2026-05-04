@@ -34,6 +34,7 @@ website:
         aria-label: Email
   page-footer:
     left: "© 2026 Zheng Zhou"
+    center: '<span class="site-last-updated">Last updated: <span data-last-updated data-locale="en"></span></span>'
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:
@@ -44,6 +45,7 @@ format:
     include-in-header:
       - assets/includes/goatcounter.html
       - assets/includes/language-switch.html
+      - assets/includes/footer-updated.html
       - assets/includes/visitor-map.html
     toc: true
     toc-location: right
