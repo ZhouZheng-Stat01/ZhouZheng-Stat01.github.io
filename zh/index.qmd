@@ -99,6 +99,15 @@ title-block-banner: false
 2026 年 5 月
 :::
 ::: {.news-text}
+关于个体处理效应的分布无关预测推断不可能性结果的预印本已发布在 arXiv。
+:::
+:::
+
+::: {.news-item}
+::: {.news-date}
+2026 年 5 月
+:::
+::: {.news-text}
 使用 Quarto 和 GitHub Pages 搭建并发布个人学术主页。
 :::
 :::
@@ -108,7 +117,7 @@ title-block-banner: false
 2026 年 4 月
 :::
 ::: {.news-text}
-关于共形预测评估的预印本已发布在 arXiv。
+关于共形预测中条件覆盖评估与方法选择框架的预印本已发布在 arXiv。
 :::
 :::
 :::
@@ -117,6 +126,21 @@ title-block-banner: false
 
 ::: {.publication-note}
 \* 共同一作。† 通讯作者。
+:::
+
+::: {.publication-entry}
+::: {.publication-title}
+Impossibility of Distribution-Free Predictive Inference for Individual Treatment Effects
+:::
+::: {.publication-authors}
+Chongguang Tao\*, Zheng Zhou\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2605.05051) / [PDF](https://arxiv.org/pdf/2605.05051) / [DOI](https://doi.org/10.48550/arXiv.2605.05051)
+:::
 :::
 
 ::: {.publication-entry}

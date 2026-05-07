@@ -11,6 +11,21 @@ description: "论文列表"
 
 ::: {.publication-entry}
 ::: {.publication-title}
+Impossibility of Distribution-Free Predictive Inference for Individual Treatment Effects
+:::
+::: {.publication-authors}
+Chongguang Tao\*, Zheng Zhou\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026. 2026 年 5 月 6 日提交。
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2605.05051) / [PDF](https://arxiv.org/pdf/2605.05051) / [DOI](https://doi.org/10.48550/arXiv.2605.05051)
+:::
+:::
+
+::: {.publication-entry}
+::: {.publication-title}
 Conformal Prediction Assessment: A Framework for Conditional Coverage Evaluation and Selection
 :::
 ::: {.publication-authors}

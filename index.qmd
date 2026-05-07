@@ -96,6 +96,15 @@ Sun Yat-sen University
 May 2026
 :::
 ::: {.news-text}
+Posted a new arXiv preprint on impossibility results for distribution-free predictive inference of individual treatment effects.
+:::
+:::
+
+::: {.news-item}
+::: {.news-date}
+May 2026
+:::
+::: {.news-text}
 Launched this academic homepage with Quarto and GitHub Pages.
 :::
 :::
@@ -105,7 +114,7 @@ Launched this academic homepage with Quarto and GitHub Pages.
 April 2026
 :::
 ::: {.news-text}
-Posted a new preprint on conformal prediction assessment to arXiv.
+Posted a new arXiv preprint introducing a framework for conditional coverage evaluation and method selection in conformal prediction.
 :::
 :::
 :::
@@ -114,6 +123,21 @@ Posted a new preprint on conformal prediction assessment to arXiv.
 
 ::: {.publication-note}
 \* Equal contribution. † Corresponding author.
+:::
+
+::: {.publication-entry}
+::: {.publication-title}
+Impossibility of Distribution-Free Predictive Inference for Individual Treatment Effects
+:::
+::: {.publication-authors}
+Chongguang Tao\*, Zheng Zhou\*, Yuhong Yang†
+:::
+::: {.publication-meta}
+*arXiv preprint*, 2026
+:::
+::: {.publication-links}
+[arXiv](https://arxiv.org/abs/2605.05051) / [PDF](https://arxiv.org/pdf/2605.05051) / [DOI](https://doi.org/10.48550/arXiv.2605.05051)
+:::
 :::
 
 ::: {.publication-entry}
