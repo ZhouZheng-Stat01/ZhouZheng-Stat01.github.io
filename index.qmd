@@ -1,6 +1,6 @@
 ---
 title: "Zheng Zhou"
-description: "Academic homepage"
+description: "Academic homepage of Zheng Zhou, Ph.D. student in Statistics at Qiuzhen College, Tsinghua University. Research interests include statistics, machine learning, conformal prediction, causal inference, and quantitative finance."
 toc: false
 title-block-banner: false
 ---

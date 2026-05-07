@@ -9,9 +9,9 @@ project:
     - assets/data/visitor-locations.json
 
 website:
-  title: "Zheng Zhou"
-  site-url: "https://ZhouZheng-Stat01.github.io"
-  description: "Academic homepage of Zheng Zhou"
+  title: "Zheng Zhou | Statistics PhD Student | Tsinghua University"
+  site-url: "https://zhouzheng-stat01.github.io"
+  description: "Academic homepage of Zheng Zhou, Ph.D. student in Statistics at Qiuzhen College, Tsinghua University. Research interests include statistics, machine learning, conformal prediction, causal inference, and quantitative finance."
   navbar:
     pinned: true
     left:

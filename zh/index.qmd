@@ -1,6 +1,6 @@
 ---
 title: "周正"
-description: "中文学术主页"
+description: "周正的中文学术主页。周正是清华大学求真书院统计学博士生，研究兴趣包括统计学、机器学习、共形预测、因果推断和量化金融。"
 toc: false
 title-block-banner: false
 ---
