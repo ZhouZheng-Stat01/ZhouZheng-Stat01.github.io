@@ -9,7 +9,7 @@ project:
     - assets/data/visitor-locations.json
 
 website:
-  title: "Zheng Zhou | Statistics PhD Student | Tsinghua University"
+  title: "Zheng Zhou"
   site-url: "https://zhouzheng-stat01.github.io"
   description: "Academic homepage of Zheng Zhou, Ph.D. student in Statistics at Qiuzhen College, Tsinghua University. Research interests include statistics, machine learning, conformal prediction, causal inference, and quantitative finance."
   navbar:
