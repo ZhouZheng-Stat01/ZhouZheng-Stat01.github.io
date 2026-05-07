@@ -7,6 +7,7 @@ project:
     - "!zh/"
   resources:
     - assets/data/visitor-locations.json
+    - googlef275a6ee10178c43.html
 
 website:
   title: "Zheng Zhou"
