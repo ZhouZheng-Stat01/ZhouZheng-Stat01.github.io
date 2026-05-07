@@ -27,7 +27,7 @@ Beijing, China
 ::: {.home-links}
 [Email](mailto:zhouz23@mails.tsinghua.edu.cn)  
 [GitHub](https://github.com/ZhouZheng-Stat01)  
-[Google Scholar](https://scholar.google.com/)
+[Google Scholar](https://scholar.google.com/citations?user=EYtkgPEAAAAJ&hl=en)
 :::
 
 ::: {.visitor-inline}
